@@ -1,11 +1,11 @@
 import * as vscode from 'vscode';
-import { getEditorSelections, FileSelection } from './getSelections';
+import { getEditorSelections, FileSelection, parseFileName } from './getSelections';
 import fetch, { Headers } from 'node-fetch';
 import { FetchException } from './exceptions';
-import { title } from 'process';
 
 
 const BASE_URL: string = "https://api-beta.mystb.in/paste";
+const MAX_SIZE: number = 30_000;
 
 interface File {
     filename: string,
@@ -19,20 +19,37 @@ interface PasteContent {
 }
 
 
-export async function singleEditorUpload() {
-    let activeEditor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
+export async function singleEditorUpload(menuResource: vscode.Uri | undefined = undefined) {
+    let highlighted: FileSelection[];
 
-    if (!activeEditor) {
-        vscode.window.showErrorMessage("Please open a file and re-run this command to upload to MystBin.");
-        return
+    if (!menuResource) {
+        let activeEditor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
+
+        if (!activeEditor) {
+            vscode.window.showErrorMessage("Please open a file and re-run this command to upload to MystBin. Or Right Click a File in your explorer.");
+            return;
+        }
+
+        highlighted = getEditorSelections(activeEditor);
     }
 
-    // Meta Data...
-    // const filename: string = activeEditor.document.fileName;
-    // const source: string = "VSCode";
+    else {
+        let fileBytes: Uint8Array = await vscode.workspace.fs.readFile(menuResource);
+        if (fileBytes.length > MAX_SIZE) {
+            vscode.window.showErrorMessage("Filesize too large. Please select a smaller file.");
+            return;
+        }
 
-    // Returns active selections OR full content if there are none...
-    let highlighted: FileSelection[] = getEditorSelections(activeEditor);
+        let content: string = new TextDecoder().decode(fileBytes);
+
+        highlighted = [{
+            "startLine": 1,
+            "endLine": 1,
+            "content": content,
+            "filename": parseFileName(menuResource.path),
+            "fullDocument": true
+        }];
+    }
 
     if (highlighted.length > 5) {
         vscode.window.showErrorMessage(
@@ -49,7 +66,7 @@ export async function singleEditorUpload() {
 
     const pasteContent: PasteContent = {
         "files": tempFiles
-    }
+    };
 
     let resp: any;
     try {

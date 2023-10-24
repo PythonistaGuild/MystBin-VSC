@@ -34,7 +34,15 @@
         "command": "mystbin.share",
         "title": "Share/Paste code to MystBin"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "mystbin.share",
+          "when": "resourceScheme == file"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
@@ -45,20 +53,20 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.83.0",
     "@types/mocha": "^10.0.2",
     "@types/node": "18.x",
+    "@types/vscode": "^1.83.0",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
+    "@vscode/test-electron": "^2.3.4",
     "eslint": "^8.50.0",
     "glob": "^10.3.3",
     "mocha": "^10.2.0",
-    "typescript": "^5.2.2",
-    "@vscode/test-electron": "^2.3.4"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
-    "node-fetch": "2.7.0",
-    "@types/node-fetch": "2.6.7"
+    "@types/node-fetch": "2.6.7",
+    "node-fetch": "2.7.0"
   },
   "repository": {
     "type": "git",
