@@ -1,13 +1,29 @@
 {
   "name": "mystbin",
   "displayName": "MystBin",
-  "description": "Share text and code with mystb.in",
+  "description": "Easily share text and code with mystb.in",
   "version": "0.0.1",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "PythonistaGuild",
+    "url": "https://github.com/PythonistaGuild"
+  },
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#15151C",
+    "theme": "dark"
+  },
+  "pricing": "Free",
   "engines": {
     "vscode": "^1.83.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "paste",
+    "share",
+    "sharing"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -37,8 +53,15 @@
     "glob": "^10.3.3",
     "mocha": "^10.2.0",
     "typescript": "^5.2.2",
-    "@vscode/test-electron": "^2.3.4",
+    "@vscode/test-electron": "^2.3.4"
+  },
+  "dependencies": {
     "node-fetch": "2.7.0",
     "@types/node-fetch": "2.6.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PythonistaGuild/MystBin-VSC"
+  },
+  "homepage": "https://github.com/PythonistaGuild/MystBin-VSC#readme"
 }
