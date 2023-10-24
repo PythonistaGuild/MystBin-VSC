@@ -10,11 +10,27 @@ export interface FileSelection {
 }
 
 
+export function parseFileName(path: string): string {
+    let splat: string[] = path.split(/(\/{1,2}?|\\{1,2}?)/);
+    let last: string | undefined = splat.pop();
+
+    if (!last) {
+        return "file.ext";
+    }
+
+    if (last.length > 20) {
+        return last.slice(-20);
+    }
+
+    return last;
+}
+
+
 export function getEditorSelections(activeEditor: vscode.TextEditor): FileSelection[] {
         const editorSelections: readonly vscode.Selection[] = activeEditor.selections;
         const sortedSelections: vscode.Selection[] = sortSelections(editorSelections);
 
-        const fileName: string = vscode.workspace.asRelativePath(activeEditor.document.uri, false);
+        const fileName: string = parseFileName(vscode.workspace.asRelativePath(activeEditor.document.uri, false));
         let highlighted: FileSelection[] = [];
     
         for (let selection of sortedSelections) {
@@ -38,7 +54,7 @@ export function getEditorSelections(activeEditor: vscode.TextEditor): FileSelect
                     "content": content,
                     "filename": fileName,
                     "fullDocument": false
-                }
+                };
                 highlighted.push(file);
             }
         }
