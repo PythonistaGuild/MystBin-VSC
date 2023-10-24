@@ -28,7 +28,7 @@
 
 ### 0.0.1
 
-- Inital release
+- Initial release
   - Basic single file pasting functionality.
   - Basic highlighting/selection based pasting.
   - Copy URL to clipboard.
