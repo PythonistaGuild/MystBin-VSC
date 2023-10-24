@@ -26,6 +26,14 @@
 ## Release Notes
 
 
+### 0.0.2
+
+- Added: Explorer Right Click Menu.
+  - Right Click to upload a files contents. (Max Size of 30_000 bytes.)
+
+- Fixed: Filename parsing was inaccurate. Added a parser for better results.
+
+
 ### 0.0.1
 
 - Initial release
