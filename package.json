@@ -4,6 +4,7 @@
   "description": "Easily share text and code with mystb.in",
   "version": "0.0.1",
   "license": "SEE LICENSE IN LICENSE",
+  "publisher": "PythonistaGuild",
   "author": {
     "name": "PythonistaGuild",
     "url": "https://github.com/PythonistaGuild"
