@@ -121,6 +121,7 @@ async function doPaste(pasteContent: PasteContent): Promise<any> {
     try {
         resp = await fetch(BASE_URL, {
             "method": "POST",
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             "headers": new Headers({"Content-Type": "application/json"}),
             "body": JSON.stringify(pasteContent)
         });
