@@ -2,7 +2,7 @@
   "name": "mystbin",
   "displayName": "MystBin",
   "description": "Easily share text and code with mystb.in",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "SEE LICENSE IN LICENSE",
   "publisher": "PythonistaGuild",
   "author": {
@@ -40,6 +40,12 @@
         {
           "command": "mystbin.share",
           "when": "resourceScheme == file"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "mystbin.share",
+          "when": "editorHasSelection || editorFocus"
         }
       ]
     }

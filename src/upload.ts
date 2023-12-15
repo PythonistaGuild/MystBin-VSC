@@ -36,16 +36,19 @@ interface PasteContent {
 
 
 export async function singleEditorUpload(menuResource: vscode.Uri | undefined = undefined) {
+    let activeEditor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
     let highlighted: FileSelection[];
 
     if (!menuResource) {
-        let activeEditor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
-
         if (!activeEditor) {
             vscode.window.showErrorMessage("Please open a file and re-run this command to upload to MystBin. Or Right Click a File in your explorer.");
             return;
         }
 
+        highlighted = getEditorSelections(activeEditor);
+    }
+
+    else if (menuResource.path === activeEditor?.document.uri.path) {
         highlighted = getEditorSelections(activeEditor);
     }
 

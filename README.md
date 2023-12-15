@@ -6,6 +6,7 @@
 ## Features
 
 - Paste full files or text of any language to MystBin with ``>Share`` (`mystbin.share`).
+- Editor and Explorer Context Menus for ease of use. Right Click to send to MystBin.
 - Select up to **5** snippets in an open editor and send them to MystBin as separate files.
 - Automatically copies the paste URL and has a button to open it in your browser.
 
@@ -13,7 +14,6 @@
 ## Planned
 
 - Editor Icon/Button for quickly saving a workspace or file.
-- Context Menus for quickly pasting files from the explorer or selected text in an editor.
 - Fetch and edit existing MystBin pastes via ID or URL.
 - Ability to provide your API token for saving pastes to your account.
 
@@ -26,10 +26,16 @@
 ## Release Notes
 
 
+### 0.0.3
+
+- Added: Editor Context Menu.
+  - Right click to upload a file or selection(s). (Max Size of 30_000 bytes per selection && Max Selections of 5)
+
+
 ### 0.0.2
 
-- Added: Explorer Right Click Menu.
-  - Right Click to upload a files contents. (Max Size of 30_000 bytes.)
+- Added: Explorer Context Menu.
+  - Right Click a file in the explorer to upload its contents. (Max Size of 30_000 bytes.)
 
 - Fixed: Filename parsing was inaccurate. Added a parser for better results.
 
