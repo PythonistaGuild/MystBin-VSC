@@ -20,8 +20,8 @@ import fetch, { Headers } from 'node-fetch';
 import { FetchException } from './exceptions';
 
 
-const BASE_URL: string = "https://api-beta.mystb.in/paste";
-const MAX_SIZE: number = 30_000;
+const BASE_URL: string = "https://mystb.in/api/paste";
+const MAX_SIZE: number = 50_000;
 
 interface File {
     filename: string,
@@ -116,7 +116,7 @@ export async function singleEditorUpload(menuResource: vscode.Uri | undefined = 
         }
     }
 
-    let pasteURL: string = `https://beta.mystb.in/${resp["id"]}`;
+    let pasteURL: string = `https://mystb.in/${resp["id"]}`;
     await vscode.env.clipboard.writeText(pasteURL);
 
     let choice = vscode.window.showInformationMessage(
