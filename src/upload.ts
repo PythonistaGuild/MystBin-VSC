@@ -21,7 +21,7 @@ import { FetchException } from './exceptions';
 
 
 const BASE_URL: string = "https://mystb.in/api/paste";
-const MAX_SIZE: number = 50_000;
+const MAX_SIZE: number = 300_000;
 
 interface File {
     filename: string,

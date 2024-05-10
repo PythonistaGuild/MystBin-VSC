@@ -26,6 +26,18 @@
 ## Release Notes
 
 
+### 0.0.5
+
+- Changed: File character limit
+  - Changed the character limit from `50_000` to `300_000`.
+
+
+### 0.0.4
+
+- Changed: Domain
+  - Changed the domain to `https://mystb.in`
+
+
 ### 0.0.3
 
 - Added: Editor Context Menu.
