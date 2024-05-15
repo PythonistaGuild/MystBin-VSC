@@ -1,8 +1,8 @@
 {
   "name": "mystbin",
   "displayName": "MystBin",
-  "description": "Easily share text and code with mystb.in",
-  "version": "0.0.5",
+  "description": "Easily share text and code with https://mystb.in",
+  "version": "0.0.6",
   "license": "SEE LICENSE IN LICENSE",
   "publisher": "PythonistaGuild",
   "author": {
@@ -48,6 +48,16 @@
           "when": "editorHasSelection || editorFocus"
         }
       ]
+    },
+    "configuration": {
+      "title": "MystBin",
+      "properties": {
+        "mystbin.copyUrlOnSave": {
+          "type":"boolean",
+          "default": true,
+          "description": "Whether to copy the uploaded paste URL to clipboard automatically after saving."
+        }
+      }
     }
   },
   "scripts": {

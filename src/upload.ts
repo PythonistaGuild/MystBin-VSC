@@ -117,10 +117,16 @@ export async function singleEditorUpload(menuResource: vscode.Uri | undefined = 
     }
 
     let pasteURL: string = `https://mystb.in/${resp["id"]}`;
-    await vscode.env.clipboard.writeText(pasteURL);
+    let copyUrl: boolean | undefined = vscode.workspace.getConfiguration("mystbin").get("copyUrlOnSave");
+    let annotation: string = " ";
+
+    if (copyUrl === true) {
+        await vscode.env.clipboard.writeText(pasteURL);
+        annotation = " was copied and ";
+    }
 
     let choice = vscode.window.showInformationMessage(
-        `MystBin | Success\n\nYour paste URL was copied and can be found at: ${pasteURL}`,
+        `MystBin | Success\n\nYour paste URL${annotation}can be found at: ${pasteURL}`,
         "Ok",
         "Open URL"
         );

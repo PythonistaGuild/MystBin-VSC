@@ -1,6 +1,7 @@
 # MystBin | VSCode Extension
 
-* [MystBin](https://beta.mystb.in) is an easy way to share text and code online. With this extension you can paste to MystBin directly from Visual Studio Code.
+* [MystBin](https://mystb.in) is an easy way to share text and code online. With this extension you can paste to MystBin directly from Visual Studio Code.
+* [API Documentation](https://mystb.in/api/documentation)
 
 
 ## Features
@@ -25,6 +26,12 @@
 
 ## Release Notes
 
+
+### 0.0.6
+
+- Added: Extension Configuration Settings
+  - Added an option to toggle automatically copying the paste URL to clipboard after saving. Defaults to `true`.
+  
 
 ### 0.0.5
 
