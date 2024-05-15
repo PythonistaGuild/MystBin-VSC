@@ -21,7 +21,8 @@
 
 ## Settings
 
-**None currently exist.**
+- `mystbin.copyUrlOnSave`
+  - Toggle automatically copying the paste URL to clipboard after saving. Defaults to `true`
 
 
 ## Release Notes
