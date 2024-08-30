@@ -1,4 +1,4 @@
-# MystBin | VSCode Extension
+# MystBin | [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=PythonistaGuild.mystbin)
 
 * [MystBin](https://mystb.in) is an easy way to share text and code online. With this extension you can paste to MystBin directly from Visual Studio Code.
 * [API Documentation](https://mystb.in/api/documentation)
